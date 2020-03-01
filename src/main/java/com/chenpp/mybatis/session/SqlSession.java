@@ -15,6 +15,9 @@ public interface SqlSession {
 
     <T> List<T> selectList(String var1, Object var2) throws Exception;
 
+    /**
+     * 暂时只支持Object[]
+     * */
     int delete(String var1, Object var2) throws Exception;
 
     int update(String var1, Object var2) throws Exception;

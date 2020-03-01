@@ -39,8 +39,8 @@ public class Plugin implements InvocationHandler {
         try {
             Set<Method> methods = (Set)this.signatureMap.get(method.getDeclaringClass());
             return methods != null && methods.contains(method) ? this.interceptor.intercept(new Invocation(this.target, method, args)) : method.invoke(this.target, args);
-        } catch (Exception var5) {
-            throw new Exception("interceptor invoke error");
+        } catch (Exception e) {
+            throw new Exception("interceptor invoke error",e);
         }
     }
 

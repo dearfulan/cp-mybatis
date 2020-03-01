@@ -7,6 +7,7 @@ import java.sql.SQLException;
 /**
  * 2020/2/29
  * created by chenpp
+ * 参数处理
  */
 public class ParameterHandler {
 

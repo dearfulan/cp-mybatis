@@ -11,7 +11,8 @@ import com.chenpp.mybatis.plugin.*;
  * created by chenpp
  * 自定定义的插件
  */
-@Intercepts({ @Signature(type = Executor.class, method = "query", args = { MappedStatement.class, Object.class}) })
+@Intercepts({ @Signature(type = Executor.class, method = "query", args = { MappedStatement.class, Object.class})
+,@Signature(type = Executor.class, method = "update", args = { MappedStatement.class, Object.class}) })
 public class LogInterceptor implements Interceptor {
 
     @Override

@@ -39,7 +39,7 @@ public class CPMyBatisTest {
         blog.setBid(9);
         blog.setAuthorId(3);
         blog.setName("测试添加博客");
-        sqlSession.insert("com.chenpp.mybatis.mapper.BlogMapper.insertBlog",blog);
+        sqlSession.insert("com.chenpp.mybatis.mapper.BlogMapper.insertBlog",new Object[]{9,"测试新增博客",3});
     }
 
     @Test
@@ -50,15 +50,14 @@ public class CPMyBatisTest {
         blog.setBid(1);
         blog.setAuthorId(3);
         blog.setName("测试修改博客");
-        sqlSession.insert("com.chenpp.mybatis.mapper.BlogMapper.updateBlog",blog);
+        sqlSession.update("com.chenpp.mybatis.mapper.BlogMapper.updateBlog",new Object[]{"测试修改博客",3});
     }
 
     @Test
     public void testDelete() throws Exception {
         SqlSessionFactory factory = new SqlSessionFactory();
         SqlSession sqlSession = factory.build().openSession();
-        Blog blog = new Blog();
-        sqlSession.insert("com.chenpp.mybatis.mapper.BlogMapper.deleteBlog",4);
+        sqlSession.delete("com.chenpp.mybatis.mapper.BlogMapper.deleteBlog",9);
     }
 
 }
