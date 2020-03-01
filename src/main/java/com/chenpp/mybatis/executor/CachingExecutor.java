@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * 2020/2/29
  * created by chenpp
- * 带缓存的executor 这里直接保存在Map里
+ * 带缓存的executor 这里直接将缓存的查询结果保存在Map里
  */
 public class CachingExecutor implements  Executor {
 

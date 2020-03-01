@@ -11,6 +11,8 @@ import java.util.Set;
 /**
  * 2020/2/29
  * created by chenpp
+ * Interceptor的增强类
+ *
  */
 public class Plugin implements InvocationHandler {
 
@@ -25,6 +27,7 @@ public class Plugin implements InvocationHandler {
     }
 
     public static Object wrap(Object target, Interceptor interceptor) throws Exception {
+        //根据interceptor的注解获取对应的方法签名
         Map<Class<?>, Set<Method>> signatureMap = getSignatureMap(interceptor);
         Class<?> type = target.getClass();
         Class<?>[] interfaces = getAllInterfaces(type,signatureMap);
@@ -37,6 +40,7 @@ public class Plugin implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         try {
+            //获取当前类被拦截的方法集合
             Set<Method> methods = (Set)this.signatureMap.get(method.getDeclaringClass());
             return methods != null && methods.contains(method) ? this.interceptor.intercept(new Invocation(this.target, method, args)) : method.invoke(this.target, args);
         } catch (Exception e) {
@@ -46,6 +50,7 @@ public class Plugin implements InvocationHandler {
 
     private static Class<?>[] getAllInterfaces(Class<?> type, Map<Class<?>, Set<Method>> signatureMap) {
         Set allInterfaces = new HashSet();
+        //根据当前class,获取其类型和父类类型，如果其接口满足当前的方法签名则添加到接口集合里
         for(; type != null; type = type.getSuperclass()) {
             Class[] typeInterfaces = type.getInterfaces();
             for(int i = 0; i < typeInterfaces.length; i++) {

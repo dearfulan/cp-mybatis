@@ -2,16 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bedc3e42-ce0c-43c8-850a-fd04454db626" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/cache/CacheKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/cache/CacheKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/datasource/MyDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/datasource/MyDataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/executor/CachingExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/executor/CachingExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/executor/SimpleExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/executor/SimpleExecutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/executor/StatementHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/executor/StatementHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/interceptor/LogInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/interceptor/LogInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/mapping/MappedStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/mapping/MappedStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/mapping/MapperProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/mapping/MapperProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/mapping/MapperProxyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/mapping/MapperProxyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/mapping/MapperRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/mapping/MapperRegistry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/parameter/ParameterHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/parameter/ParameterHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/plugin/Interceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/plugin/Interceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/plugin/InterceptorChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/plugin/InterceptorChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/plugin/Invocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/plugin/Invocation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/plugin/Plugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/plugin/Plugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/result/ResultHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/result/ResultHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/session/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/session/Configuration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/session/DefaultSqlSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/session/DefaultSqlSession.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/session/SqlSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/session/SqlSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/chenpp/mybatis/CPMyBatisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chenpp/mybatis/CPMyBatisTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/chenpp/mybatis/CPMyBatisTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/chenpp/mybatis/CPMyBatisTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/session/SqlSessionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/session/SqlSessionFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +104,7 @@
       <recent name="E:\code\cp-mybatis\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CPMyBatisTest.testInsert">
+  <component name="RunManager" selected="JUnit.CPMyBatisTest.testUpdate">
     <configuration name="CPMyBatisTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.chenpp.mybatis.CPMyBatisTest" />
       <module name="cp-mybatis" />
@@ -173,9 +184,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CPMyBatisTest.testUpdate" />
         <item itemvalue="JUnit.CPMyBatisTest.testInsert" />
         <item itemvalue="JUnit.CPMyBatisTest.testDelete" />
-        <item itemvalue="JUnit.CPMyBatisTest.testUpdate" />
         <item itemvalue="JUnit.CPMyBatisTest.testSelect" />
         <item itemvalue="Application.CPMyBatisTest" />
       </list>
@@ -203,7 +214,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1582947349724</updated>
-      <workItem from="1582947351491" duration="31067000" />
+      <workItem from="1582947351491" duration="32024000" />
     </task>
     <servers />
   </component>
@@ -223,42 +234,42 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="442" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1582948008333" />
-    <state width="504" height="466" key="DebuggerActiveHint" timestamp="1583040969641">
+    <state width="504" height="466" key="DebuggerActiveHint" timestamp="1583041966026">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="504" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1583040969641" />
-    <state width="1493" height="272" key="GridCell.Tab.0.bottom" timestamp="1583041011130">
+    <state width="504" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1583041966026" />
+    <state width="1493" height="420" key="GridCell.Tab.0.bottom" timestamp="1583041937149">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="272" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583041011130" />
-    <state width="1493" height="272" key="GridCell.Tab.0.center" timestamp="1583041011130">
+    <state width="1493" height="420" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583041937149" />
+    <state width="1493" height="420" key="GridCell.Tab.0.center" timestamp="1583041937148">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="272" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583041011130" />
-    <state width="1493" height="272" key="GridCell.Tab.0.left" timestamp="1583041011130">
+    <state width="1493" height="420" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583041937148" />
+    <state width="1493" height="420" key="GridCell.Tab.0.left" timestamp="1583041937148">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="272" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583041011130" />
-    <state width="1493" height="272" key="GridCell.Tab.0.right" timestamp="1583041011130">
+    <state width="1493" height="420" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583041937148" />
+    <state width="1493" height="420" key="GridCell.Tab.0.right" timestamp="1583041937149">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="272" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583041011130" />
-    <state width="1493" height="272" key="GridCell.Tab.1.bottom" timestamp="1583041010997">
+    <state width="1493" height="420" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583041937149" />
+    <state width="1493" height="420" key="GridCell.Tab.1.bottom" timestamp="1583041938962">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="272" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583041010997" />
-    <state width="1493" height="272" key="GridCell.Tab.1.center" timestamp="1583041010997">
+    <state width="1493" height="420" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583041938962" />
+    <state width="1493" height="420" key="GridCell.Tab.1.center" timestamp="1583041938961">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="272" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1583041010997" />
-    <state width="1493" height="272" key="GridCell.Tab.1.left" timestamp="1583041010997">
+    <state width="1493" height="420" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1583041938961" />
+    <state width="1493" height="420" key="GridCell.Tab.1.left" timestamp="1583041938961">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="272" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1583041010997" />
-    <state width="1493" height="272" key="GridCell.Tab.1.right" timestamp="1583041010997">
+    <state width="1493" height="420" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1583041938961" />
+    <state width="1493" height="420" key="GridCell.Tab.1.right" timestamp="1583041938962">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="272" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1583041010997" />
+    <state width="1493" height="420" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1583041938962" />
     <state x="270" y="55" key="SettingsEditor" timestamp="1582978091693">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -301,17 +312,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/mapping/MapperProxy.java</url>
-          <line>37</line>
+          <line>39</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/session/DefaultSqlSession.java</url>
-          <line>38</line>
+          <line>37</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/executor/SimpleExecutor.java</url>
-          <line>17</line>
+          <line>16</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -325,29 +336,19 @@
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/plugin/Plugin.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/executor/SimpleExecutor.java</url>
-          <line>24</line>
+          <line>23</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/executor/StatementHandler.java</url>
-          <line>90</line>
+          <line>92</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/session/DefaultSqlSession.java</url>
-          <line>74</line>
+          <line>73</line>
           <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/plugin/Plugin.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/interceptor/LogInterceptor.java</url>
@@ -356,8 +357,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/executor/StatementHandler.java</url>
-          <line>69</line>
+          <line>71</line>
           <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/chenpp/mybatis/plugin/Plugin.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

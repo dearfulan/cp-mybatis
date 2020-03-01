@@ -1,13 +1,12 @@
 package com.chenpp.mybatis.session;
 
-import com.chenpp.mybatis.result.ResultHandler;
 
-import java.sql.SQLException;
 import java.util.List;
 
 /**
  * 2020/2/29
  * created by chenpp
+ * 对外提供的操作API
  */
 public interface SqlSession {
 

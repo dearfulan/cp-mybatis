@@ -6,6 +6,7 @@ import java.lang.reflect.Method;
 /**
  * 2020/2/29
  * created by chenpp
+ * 保存代理类的信息，目标对象，执行方法和参数
  */
 public class Invocation {
 

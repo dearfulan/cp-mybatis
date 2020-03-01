@@ -18,6 +18,7 @@ import java.util.*;
 /**
  * 2020/2/29
  * created by chenpp
+ * 核心配置类
  */
 public class Configuration {
 
@@ -39,7 +40,6 @@ public class Configuration {
     private InterceptorChain interceptorChain = new InterceptorChain(); // 插件
 
     private List<Class<?>> mapperList = new ArrayList<Class<?>>(); // 所有Mapper接口
-//    private List<String> classPaths = new ArrayList<>(); // 类所有文件
 
     static{
         sqlMappings = ResourceBundle.getBundle("sql");

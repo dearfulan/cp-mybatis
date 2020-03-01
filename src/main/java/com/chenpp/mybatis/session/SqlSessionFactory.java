@@ -4,6 +4,7 @@ package com.chenpp.mybatis.session;
 /**
  * 2020/2/29
  * created by chenpp
+ * SqlSession会话工厂，创建SqlSession
  */
 public class SqlSessionFactory {
 

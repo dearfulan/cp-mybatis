@@ -15,6 +15,8 @@ import java.util.List;
 /**
  * 2020/2/29
  * created by chenpp
+ * 用于调用JDBC API，执行SQL
+ * 这里简化了很多操作，直接创建了ResultHandler和ParameterHandler来处理参数和结果集
  */
 public class StatementHandler {
 

@@ -3,7 +3,6 @@ package com.chenpp.mybatis.session;
 import com.chenpp.mybatis.executor.Executor;
 import com.chenpp.mybatis.mapping.MappedStatement;
 
-import java.sql.SQLException;
 import java.util.List;
 
 /**

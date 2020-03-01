@@ -5,12 +5,12 @@ import java.lang.reflect.Method;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * 2020/2/29
  * created by chenpp
+ * 处理结果集的Handler
  */
 public class ResultHandler {
 

@@ -5,6 +5,7 @@ import com.chenpp.mybatis.session.Configuration;
 /**
  * 2020/2/29
  * created by chenpp
+ * 用来存储SQL相关的信息，对应的Configuration,commentType,statementId，和映射的实体类
  */
 public class MappedStatement {
 

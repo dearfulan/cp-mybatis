@@ -7,6 +7,7 @@ import java.lang.reflect.Proxy;
 /**
  * 2020/2/29
  * created by chenpp
+ * Mapper代理工厂
  */
 public class MapperProxyFactory<T> {
 

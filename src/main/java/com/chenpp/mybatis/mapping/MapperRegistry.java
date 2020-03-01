@@ -10,6 +10,7 @@ import java.util.Map;
 /**
  * 2020/2/29
  * created by chenpp
+ * 注册Mapper信息的类
  */
 public class MapperRegistry {
 

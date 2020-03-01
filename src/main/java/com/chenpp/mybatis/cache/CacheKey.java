@@ -7,6 +7,7 @@ import java.util.List;
 /**
  * 2020/2/29
  * created by chenpp
+ * 用于构造SQL的唯一表示 ，用来作为缓存查询结果的key
  */
 public class CacheKey {
 

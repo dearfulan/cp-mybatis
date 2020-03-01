@@ -7,7 +7,7 @@ import java.sql.SQLException;
 /**
  * 2020/2/29
  * created by chenpp
- * 参数处理
+ * 参数处理的Handler ,将参数赋值给PreparedStatement
  */
 public class ParameterHandler {
 

@@ -9,7 +9,7 @@ import com.chenpp.mybatis.plugin.*;
 /**
  * 2020/2/29
  * created by chenpp
- * 自定定义的插件
+ * 自定义的插件 打印查询的SQL和时间
  */
 @Intercepts({ @Signature(type = Executor.class, method = "query", args = { MappedStatement.class, Object.class})
 ,@Signature(type = Executor.class, method = "update", args = { MappedStatement.class, Object.class}) })

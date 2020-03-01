@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * 2020/2/29
  * created by chenpp
+ * Mapper的增强类，实现InvocationHandler接口
  * 因为我们的代理对象在执行的时候可以执行对应的SQL,所以需要持有一个会话对象SqlSession
  */
 public class MapperProxy<T> implements InvocationHandler {
@@ -23,6 +24,7 @@ public class MapperProxy<T> implements InvocationHandler {
     }
     /**
      * 用来创建Mapper的代理对象
+     *
      */
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         String statementId = clazz.getName()+"."+ method.getName();

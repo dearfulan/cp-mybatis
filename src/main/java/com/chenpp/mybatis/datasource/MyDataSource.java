@@ -7,6 +7,7 @@ import java.sql.SQLException;
 /**
  * 2020/2/29
  * created by chenpp
+ * 用来保存数据库信息，创建和释放连接对象
  */
 public class MyDataSource {
 

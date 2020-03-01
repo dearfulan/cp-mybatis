@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class InterceptorChain {
 
-    //保存拦截器结婚
+    //保存拦截器
     private final List<Interceptor> interceptors = new ArrayList();
 
     public InterceptorChain() {

@@ -1,14 +1,13 @@
 package com.chenpp.mybatis.executor;
 
 import com.chenpp.mybatis.mapping.MappedStatement;
-import com.chenpp.mybatis.result.ResultHandler;
 
-import java.sql.SQLException;
 import java.util.List;
 
 /**
  * 2020/2/29
  * created by chenpp
+ * 基本的Executor
  */
 public class SimpleExecutor implements  Executor {
 
