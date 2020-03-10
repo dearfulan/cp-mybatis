@@ -1,6 +1,6 @@
 package com.chenpp.mybatis;
 
-import com.chenpp.mybatis.mapper.Blog;
+import com.chenpp.mybatis.domain.Blog;
 import com.chenpp.mybatis.mapper.BlogMapper;
 import com.chenpp.mybatis.session.SqlSession;
 import com.chenpp.mybatis.session.SqlSessionFactory;
@@ -50,7 +50,7 @@ public class CPMyBatisTest {
         blog.setBid(1);
         blog.setAuthorId(3);
         blog.setName("测试修改博客");
-        sqlSession.update("com.chenpp.mybatis.mapper.BlogMapper.updateBlog",new Object[]{"测试修改博客",3});
+        sqlSession.update("com.chenpp.mybatis.mapper.BlogMapper.updateBlog",new Object[]{"测试修改博客121",3});
     }
 
     @Test

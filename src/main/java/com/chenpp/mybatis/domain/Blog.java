@@ -1,4 +1,4 @@
-package com.chenpp.mybatis.mapper;
+package com.chenpp.mybatis.domain;
 
 import java.io.Serializable;
 

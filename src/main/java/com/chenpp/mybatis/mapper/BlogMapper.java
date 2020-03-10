@@ -1,11 +1,10 @@
 package com.chenpp.mybatis.mapper;
 
-import com.chenpp.mybatis.annoation.Entity;
 import com.chenpp.mybatis.annoation.Select;
+import com.chenpp.mybatis.domain.Blog;
 
 import java.util.List;
 
-@Entity(Blog.class)
 public interface BlogMapper {
     /**
      * 根据主键查询文章

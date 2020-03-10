@@ -12,6 +12,8 @@ import com.chenpp.mybatis.mapping.MapperRegistry;
 
 import java.io.File;
 import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.*;
 
@@ -24,15 +26,15 @@ public class Configuration {
 
     public static ResourceBundle sqlMappings; // 解析sql配置文件，这里简单处理成Properties
     public static ResourceBundle configProperties; // 解析Mybatis全局配置 简单处理成Properties
-    public MyDataSource dataSource ;
+    public MyDataSource dataSource;
     /**
      * 用于保存Mapper类和对应的MapperProxy工厂的关系
-     * */
+     */
     public final MapperRegistry mapperRegistry = new MapperRegistry(this);
 
     /**
      * 维护接口方法与MappedStatement的关系(这里保存了和sql相关的各种参数)
-     * */
+     */
     public Map<String, MappedStatement> mappedStatements = new HashMap<String, MappedStatement>();
 
     protected boolean cacheEnabled;//是否开启二级缓存
@@ -41,7 +43,7 @@ public class Configuration {
 
     private List<Class<?>> mapperList = new ArrayList<Class<?>>(); // 所有Mapper接口
 
-    static{
+    static {
         sqlMappings = ResourceBundle.getBundle("sql");
         configProperties = ResourceBundle.getBundle("mybatis");
     }
@@ -64,8 +66,8 @@ public class Configuration {
     }
 
     private void parsePlugins() {
-        for(String key : configProperties.keySet()) {
-            if(key.startsWith("plugin.path")){
+        for (String key : configProperties.keySet()) {
+            if (key.startsWith("plugin.path")) {
                 String pluginClassName = configProperties.getString(key);
                 Interceptor interceptor = null;
                 try {
@@ -102,7 +104,7 @@ public class Configuration {
         String mapperScan = configProperties.getString("mapper.scan.path");
         doScan(mapperScan);
         //1.如果sql.properties里有配置sql的映射关系，根据这个注册Mapper信息和statement id 和MappedStatement的映射关系
-        for(String key : sqlMappings.keySet()){
+        for (String key : sqlMappings.keySet()) {
             String statementId = key;
             String value = sqlMappings.getString(statementId);
             //这里简单通过--把sql和映射的实体类映射上(--在MySQL表示注释,所以SQL里不会出现)
@@ -111,60 +113,80 @@ public class Configuration {
             String className = values[1].trim();
             String commendType = values[2].trim();
             Class<?> clazz = Class.forName(className);
-            MappedStatement mappedStatement = new MappedStatement(this,statementId,sql,clazz,commendType);
-            mappedStatements.put(statementId,mappedStatement);
+            MappedStatement mappedStatement = new MappedStatement(this, statementId, sql, clazz, commendType);
+            mappedStatements.put(statementId, mappedStatement);
             mapperRegistry.addMapper(clazz);
         }
         //2.根据Mapper的类上的注解获取对应的映射关系
-        for(Class mapperClass : mapperList) {
-            if (mapperClass.isAnnotationPresent(Entity.class)) {
-                Entity entity = (Entity) mapperClass.getAnnotation(Entity.class);
-                //这里把Entity注解上的value直接写上对应映射的实体class(相当于MyBatis里ResultType的作用)
-                Class clazz = entity.value();
-                mapperRegistry.addMapper(mapperClass);
-                //3.解析方法上的注解
-                Method[] methods = mapperClass.getMethods();
-                for (Method method : methods) {
-                    // 解析@Select注解的SQL语句
-                    if (method.isAnnotationPresent(Select.class)) {
-                        Select select = (Select) method.getAnnotation(Select.class);
-                        addMappedStatement(method, select.value(), clazz,"select");
-                    } else if (method.isAnnotationPresent(Delete.class)) {
-                        Delete delete = (Delete) method.getAnnotation(Delete.class);
-                        addMappedStatement(method, delete.value(), clazz,"delete");
-                    } else if (method.isAnnotationPresent(Update.class)) {
-                        Update update = (Update) method.getAnnotation(Update.class);
-                        addMappedStatement(method, update.value(), clazz,"update");
-                    } else if (method.isAnnotationPresent(Insert.class)) {
-                        Insert insert = (Insert) method.getAnnotation(Insert.class);
-                        addMappedStatement(method, insert.value(), clazz,"insert");
-                    }
+        for (Class mapperClass : mapperList) {
+            mapperRegistry.addMapper(mapperClass);
+            //3.解析方法上的注解
+            Method[] methods = mapperClass.getMethods();
+            for (Method method : methods) {
+                // 解析@Select注解的SQL语句
+                Class<?> returnType = getReturnEntityType(method);
+                if (method.isAnnotationPresent(Select.class)) {
+                    Select select = (Select) method.getAnnotation(Select.class);
+                    addMappedStatement(method, select.value(), returnType, "select");
+                } else if (method.isAnnotationPresent(Delete.class)) {
+                    Delete delete = (Delete) method.getAnnotation(Delete.class);
+                    addMappedStatement(method, delete.value(), returnType, "delete");
+                } else if (method.isAnnotationPresent(Update.class)) {
+                    Update update = (Update) method.getAnnotation(Update.class);
+                    addMappedStatement(method, update.value(), returnType, "update");
+                } else if (method.isAnnotationPresent(Insert.class)) {
+                    Insert insert = (Insert) method.getAnnotation(Insert.class);
+                    addMappedStatement(method, insert.value(), returnType, "insert");
                 }
             }
+
         }
 
     }
 
-    private void addMappedStatement(Method method,String sql,Class<?> clazz ,String commendType){
-        String statementId = method.getDeclaringClass().getName() + "." +method.getName();
-        MappedStatement mappedStatement = new MappedStatement(this,statementId,sql,clazz,commendType);
+    private void addMappedStatement(Method method, String sql, Class<?> clazz, String commendType) {
+        String statementId = method.getDeclaringClass().getName() + "." + method.getName();
+        MappedStatement mappedStatement = new MappedStatement(this, statementId, sql, clazz, commendType);
         mappedStatements.put(statementId, mappedStatement);
     }
 
     private void doScan(String mapperScanPath) throws ClassNotFoundException {
-        URL url = this.getClass().getResource("/" + mapperScanPath.replaceAll("\\.","/"));
+        URL url = this.getClass().getResource("/" + mapperScanPath.replaceAll("\\.", "/"));
 
-        for (File file :  new File(url.getPath()).listFiles()) {
-            if(file.isDirectory()){
-                doScan(mapperScanPath +"/" + file.getPath());
-            }else{
-                if(!file.getName().endsWith(".class")){ continue;}
-                String className = (mapperScanPath + "." + file.getName().replace(".class",""));
+        for (File file : new File(url.getPath()).listFiles()) {
+            if (file.isDirectory()) {
+                doScan(mapperScanPath + "/" + file.getPath());
+            } else {
+                if (!file.getName().endsWith(".class")) {
+                    continue;
+                }
+                String className = (mapperScanPath + "." + file.getName().replace(".class", ""));
                 mapperList.add(Class.forName(className));
             }
         }
     }
 
+    /**
+     * 获取返回类型的实体类型(如果是List则返回List的元素类型)
+     */
+    private Class getReturnEntityType(Method method) {
+
+        Type[] resultArgType = null;
+        Type resultType = method.getGenericReturnType();
+        if (resultType instanceof ParameterizedType
+                && ((ParameterizedType) resultType).getRawType() == java.util.List.class) {
+            resultArgType = ParameterizedType.class.cast(resultType).getActualTypeArguments();
+            String className = resultArgType[0].getTypeName();
+            try {
+                return Class.forName(className);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        } else {
+            return method.getReturnType();
+        }
+        return null;
+    }
 
     public MappedStatement getMappedStatement(String statementId) {
         return mappedStatements.get(statementId);
@@ -173,18 +195,18 @@ public class Configuration {
     public Executor newExecutor() throws Exception {
         Executor executor = null;
 
-        if(cacheEnabled){
+        if (cacheEnabled) {
             executor = new CachingExecutor(new SimpleExecutor());
-        }else{
+        } else {
             executor = new SimpleExecutor();
         }
         //使用插件拦截Executor,对Executor进行代理最后返回最后的代理对象
-        executor = (Executor)this.interceptorChain.pluginAll(executor);
+        executor = (Executor) this.interceptorChain.pluginAll(executor);
 
         return executor;
     }
 
     public <T> T getMapper(Class<T> clazz, SqlSession sqlSession) throws Exception {
-        return this.mapperRegistry.getMapper(clazz,sqlSession);
+        return this.mapperRegistry.getMapper(clazz, sqlSession);
     }
 }
